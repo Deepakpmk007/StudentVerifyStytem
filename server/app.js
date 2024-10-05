@@ -4,6 +4,7 @@ const app = express();
 const multer = require("multer");
 
 const studentRoute = require("./router/studentDataRoute");
+const applicantRoute = require("./router/applicantDataRouter");
 // const AppError = require("./utils/AppError");
 
 app.use(morgan("dev"));
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/v1/student", studentRoute);
+app.use("api/v1/applicant", applicantRoute);
 
 app.all("*", (req, res, next) => {
   "";
