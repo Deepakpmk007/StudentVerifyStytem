@@ -17,6 +17,6 @@ const applicantSchema = mongoose.Schema({
   },
 });
 
-const applicantData = mongoose.model("applicantData", applicantSchema);
+const ApplicantData = mongoose.model("ApplicantData", applicantSchema);
 
-module.export = applicantData;
+module.export = ApplicantData;

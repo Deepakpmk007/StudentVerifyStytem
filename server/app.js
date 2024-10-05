@@ -5,7 +5,6 @@ const multer = require("multer");
 
 const studentRoute = require("./router/studentDataRoute");
 const applicantRoute = require("./router/applicantDataRouter");
-// const AppError = require("./utils/AppError");
 
 app.use(morgan("dev"));
 
