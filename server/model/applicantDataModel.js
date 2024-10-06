@@ -11,7 +11,7 @@ const applicantSchema = mongoose.Schema({
     required: [true, "email must to be enter"],
     validate: [validator.isEmail, "Please provide a valid email"],
   },
-  contactNO: {
+  contactNo: {
     type: Number,
     required: [true, "contact no must be enter"],
   },
@@ -19,4 +19,4 @@ const applicantSchema = mongoose.Schema({
 
 const ApplicantData = mongoose.model("ApplicantData", applicantSchema);
 
-module.export = ApplicantData;
+module.exports = ApplicantData;

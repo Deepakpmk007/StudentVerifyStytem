@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/v1/student", studentRoute);
-app.use("api/v1/applicant", applicantRoute);
+app.use("/api/v1/applicant", applicantRoute);
 
 app.all("*", (req, res, next) => {
   "";
