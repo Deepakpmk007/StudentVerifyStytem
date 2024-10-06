@@ -21,7 +21,9 @@ exports.getAllStudent = async (req, res) => {
 };
 
 exports.getStudent = async (req, res) => {
-  const student = await StudentData.find({ name: req.params.id });
+  const student = await StudentData.find({ name: req.params.id }).populate(
+    "applicantID"
+  );
   try {
     res.status(200).json({
       status: "success",

@@ -4,6 +4,7 @@ const validator = require("validator");
 const studentSchema = mongoose.Schema({
   uniqueId: {
     type: String,
+    unique: true,
   },
   name: {
     type: String,
@@ -67,7 +68,7 @@ const studentSchema = mongoose.Schema({
   verifiedBY: String,
   applicantID: {
     type: mongoose.Schema.ObjectId,
-    ref: "applicantData",
+    ref: "ApplicantData",
   },
 });
 
