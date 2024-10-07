@@ -3,6 +3,7 @@ import Input from "./Input";
 import File from "./File";
 import style from "./StudentData.module.css";
 import styleInput from "./input.module.css";
+import { useNavigate } from "react-router-dom";
 
 function StudentData() {
   const [name, setName] = useState("");
@@ -21,6 +22,8 @@ function StudentData() {
   const [classObtained, setClassObtained] = useState("");
   const [files, setFiles] = useState([]);
   const [fileInputs, setFileInputs] = useState([0]);
+
+  const naviagte = useNavigate();
 
   const departments = [
     { name: "Computer Science and Engineering", shortForm: "CSE" },
@@ -65,6 +68,7 @@ function StudentData() {
       backlogs,
       files: files.map((file) => file.name),
     };
+    naviagte("/applicantdata");
 
     console.log("Student Data:", studentData);
   };
@@ -87,18 +91,13 @@ function StudentData() {
 
   return (
     // Student Data container starts here
-    <form onSubmit={handleSubmit} className={style.studentDataContainer}>
-      {/* student data title starts here */}
-      <div className={style.studentTitle}>
+    <form onSubmit={handleSubmit} className={style.dataContainer}>
+      <div className={style.title}>
         <h1>Student Details</h1>
       </div>
-      {/* student data title ends here */}
 
-      {/*  */}
-      {/* Student Input Container starts here */}
-      <div className={style.studentInputContainer}>
-        <div className={style.studentInput}>
-          {/* 1. Student Name */}
+      <div className={style.inputContainer}>
+        <div className={style.input}>
           <label htmlFor="studentName">Student Name:</label>
           <Input
             id="studentName"
@@ -107,11 +106,6 @@ function StudentData() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-        </div>
-
-        <div className={style.studentInput}>
-          {" "}
-          {/* 2. Date of Birth */}
           <label htmlFor="dob">Date of Birth:</label>
           <Input
             id="dob"
@@ -120,11 +114,6 @@ function StudentData() {
             value={dob}
             onChange={(e) => setDob(e.target.value)}
           />
-        </div>
-
-        <div className={style.studentInput}>
-          {" "}
-          {/* 3. Register Number */}
           <label htmlFor="regNo">Register Number:</label>
           <Input
             id="regNo"
@@ -133,10 +122,6 @@ function StudentData() {
             value={regNo}
             onChange={(e) => setRegNo(e.target.value)}
           />
-        </div>
-
-        <div className={style.studentInput}>
-          {/* 4. Institution Name */}
           <label htmlFor="institution">Institution Name:</label>
           <Input
             id="institution"
@@ -145,11 +130,6 @@ function StudentData() {
             value={institution}
             readOnly
           />
-        </div>
-
-        <div className={style.studentInput}>
-          {" "}
-          {/* 5. Affiliated University */}
           <label htmlFor="university">Affiliated University:</label>
           <Input
             id="university"
@@ -158,10 +138,6 @@ function StudentData() {
             value={university}
             readOnly
           />
-        </div>
-
-        <div className={style.studentInput}>
-          {/* 6. Degree */}
           <label htmlFor="degree">Degree:</label>
           <Input
             id="degree"
@@ -172,9 +148,7 @@ function StudentData() {
           />
         </div>
 
-        <div className={style.studentInput}>
-          {" "}
-          {/* 7. Branch */}
+        <div className={style.input}>
           <label htmlFor="branch">Select Department:</label>
           <select
             id="branch"
@@ -188,9 +162,7 @@ function StudentData() {
               </option>
             ))}
           </select>
-        </div>
-        <div className={style.studentInput}>
-          {/* 8. Tenure of Study */}
+
           <label htmlFor="studyPeriod">Tenure of Study:</label>
           <Input
             id="studyPeriod"
@@ -199,11 +171,6 @@ function StudentData() {
             value={studyPeriod}
             onChange={(e) => setStudyPeriod(e.target.value)}
           />
-        </div>
-
-        <div className={style.studentInput}>
-          {" "}
-          {/* 9. Month & Year of Passing */}
           <label htmlFor="monthYearPassing">Month & Year of Passing:</label>
           <Input
             id="monthYearPassing"
@@ -212,10 +179,6 @@ function StudentData() {
             value={monthYearPassing}
             onChange={(e) => setMonthYearPassing(e.target.value)}
           />
-        </div>
-
-        <div className={style.studentInput}>
-          {/* 10. CGPA */}
           <label htmlFor="CGPA">CGPA:</label>
           <Input
             id="CGPA"
@@ -224,10 +187,6 @@ function StudentData() {
             value={CGPA}
             onChange={(e) => setCGPA(e.target.value)}
           />
-        </div>
-
-        <div className={style.studentInput}>
-          {/* 11. Class Obtained */}
           <label htmlFor="class">Class Obtained:</label>
           <Input
             id="class"
@@ -236,11 +195,6 @@ function StudentData() {
             value={classObtained}
             onChange={(e) => setClassObtained(e.target.value)}
           />
-        </div>
-
-        <div className={style.studentInput}>
-          {" "}
-          {/* 12. Backlogs */}
           <label htmlFor="backlogs">Backlogs:</label>
           <select
             id="backlogs"
@@ -255,39 +209,26 @@ function StudentData() {
             </option>
           </select>
         </div>
-
-        <div className={style.studentInput}>
-          {/* 13. Remarks */}
-          <label htmlFor="remarks">Remarks:</label>
-          <textarea
-            id="remarks"
-            className={styleInput.input}
-            placeholder=""
-            rows={2}
-            cols={30}
-            value={remarks}
-            onChange={(e) => setRemarks(e.target.value)}
-          />
-          <br />
-        </div>
       </div>
-      {/* Student Input Container ends here */}
-
-      {/* Student Document Container starts here */}
+      <div className={style.remarks}>
+        <label htmlFor="remarks">Remarks</label>
+        <textarea
+          id="remarks"
+          className={styleInput.input}
+          placeholder="Remarks"
+          rows={5}
+          cols={30}
+          value={remarks}
+          onChange={(e) => setRemarks(e.target.value)}
+        />
+      </div>
       {/* ====================================================== */}
       <div className={style.studentDocumentContainer}>
-        {/* 14. File Upload */}
-        {/* document title container starts here */}
         <div className={style.documentTitle}>
           <h1>Document Details</h1>
         </div>
         {/* document title container ends here */}
         {/* Show MoreBtn if at least one file is uploaded */}
-        {files.length > 0 && (
-          <button type="button" onClick={handleMoreDocs}>
-            Verify More Documents
-          </button>
-        )}
 
         {/*student document input container starts here */}
         <div className={style.documentInput}>
@@ -299,10 +240,14 @@ function StudentData() {
             />
           ))}
         </div>
-
+        {files.length > 0 && (
+          <button type="button" className={style.btn} onClick={handleMoreDocs}>
+            Verify More Documents
+          </button>
+        )}
         {/* student document input container ends here */}
-        <button type="submit" className={style.studentSubmit}>
-          Submit
+        <button type="submit" className={style.btn}>
+          Next
         </button>
       </div>
 
