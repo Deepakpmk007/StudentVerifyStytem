@@ -1,11 +1,13 @@
 import style from "./input.module.css";
 
-function Input({ placeHolder, type, onChange }) {
+function Input({id, placeholder, type, onChange,value }) {
   return (
     <input
       className={style.input}
+      id = {id}
       type={type}
-      placeholder={placeHolder}
+      placeholder={placeholder}
+      value ={value}
       onChange={onChange}
     />
   );

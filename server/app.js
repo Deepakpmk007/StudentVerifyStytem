@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const app = express();
-const multer = require("multer");
+const cors = require("cors");
 
 const studentRoute = require("./router/studentDataRoute");
 const applicantRoute = require("./router/applicantDataRouter");
@@ -9,6 +9,7 @@ const sendEmailRoute = require("./router/emailSendRouter");
 const uploadFileRouter = require("./router/fileUploadRouter");
 
 app.use(morgan("dev"));
+app.use(cors());
 
 app.use(express.json());
 

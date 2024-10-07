@@ -1,0 +1,84 @@
+:root {
+  --title-bgColor: rgba(255, 255, 255, 0.844);
+  /* --input-font-size: 1rem; */
+}
+
+.studentDataContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.studentTitle,
+.documentTitle {
+  font-family: Arial, Helvetica, sans-serif;
+  /* padding: 10px; */
+  background-color: var(--title-bgColor);
+  width: 100%;
+}
+
+.studentInputContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* place-items: center; */
+}
+
+.studentInput {
+  width: 100%;
+  /* font-size: var(--input-font-size); */
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* gap: 5px; */
+  /* flex-wrap: nowrap; */
+  align-items: center;
+  justify-content: space-evenly;
+  /* background-color: rgb(148, 0, 0); */
+  /* margin: 1%; */
+  /* padding: 2%; */
+}
+
+/* document container */
+.studentDocumentContainer {
+  width: 100%;
+  /* display: grid; */
+}
+
+.documentInput {
+  /* position:relative; */
+
+  /* padding: 5px; */
+  grid-template-columns: repeat(4, 1fr);
+  /* justify-content: center; */
+  /* gap: 5px; */
+  display: grid;
+  /* flex-wrap: wrap; */
+  word-break: keep-all;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.studentSubmit {
+  /* padding: 1%; */
+  /* padding:10px 20px; */
+  font-size: var(--input-font-size);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: rgba(5, 174, 67, 0.205);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: all 0.5s ease;
+
+  width: fit-content; /* Set a width for the element */
+  /* margin-top:1%;
+    margin-bottom:1%; */
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.studentSubmit:hover {
+  background-color: rgba(5, 174, 67, 0.719);
+}

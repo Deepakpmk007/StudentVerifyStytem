@@ -9,8 +9,8 @@ const sendEmail = async function ({ email, subject, text }) {
     port: 587,
     secure: false,
     auth: {
-      user: "deepakpmk9600@gmail.com",
-      pass: "kxdc kbbh rzln wdyw",
+      user: process.env.HOST_MAIL,
+      pass: process.env.HOST_PASS,
     },
   });
   const mailOptions = {
@@ -18,6 +18,12 @@ const sendEmail = async function ({ email, subject, text }) {
     to: "Deepak <deepakpmk9600@gmail.com>",
     subject: subject,
     text: text,
+    //   attachments: [
+    //   {
+    //     filename: "",
+    //     // path: `../server/files/Resume.pdf`,
+    //   },
+    // ],
   };
 
   console.log("Message sent: %s", mailOptions.messageId);
