@@ -1,15 +1,11 @@
-import VerifierData from "../components/VerifierData";
-import StudentData from "../components/StudentData";
-import { useState } from "react";
+import StudentData from "../pages/StudentData";
 
 import style from "./Main.module.css";
 
 function Main() {
-  const [showStudentData, setShowStudentData] = useState(true);
-
   return (
     <div className={style.main}>
-      {showStudentData ? <StudentData /> : <VerifierData />}
+      <StudentData />
     </div>
   );
 }

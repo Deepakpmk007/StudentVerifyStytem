@@ -9,9 +9,6 @@ const studentSchema = mongoose.Schema({
   name: {
     type: String,
     required: [true, "Name must to be enter."],
-    unique: false,
-    trim: true,
-    validate: [validator.isAlpha, "Please provide a valid Name"],
   },
   dateOfBirth: {
     type: String,
@@ -20,8 +17,6 @@ const studentSchema = mongoose.Schema({
   regNo: {
     type: Number,
     required: [true, "A reg number must be enter"],
-    unique: true,
-    trim: true,
   },
   drgree: {
     type: String,
@@ -29,41 +24,42 @@ const studentSchema = mongoose.Schema({
   },
   Branch: {
     type: String,
-    enum: [
-      "Computer Science Engineering",
-      "Electrical and Electronics Engineering",
-      "Electronics and Communication Engineering",
-      "Mechanical Engineering",
-      "Civil Engineering",
-    ],
-    default: "Computer Science Engineering",
+    // default: "Computer Science Engineering",
   },
 
   nameOfTheInstitution: {
     type: String,
-    default: "Government College of Engineering Srirangam",
+    default: "Government College of Engineering Srirangam,Trichy 620012",
   },
   University: {
     type: String,
-    default: "Anna University",
+    default: "Anna University chennai",
   },
   yearOfPassing: {
     type: String,
-    required: [true, "Year of Passing must to be enter."],
+    // required: [true, "Year of Passing must to be enter."],
   },
   yearOfStudy: {
     type: String,
-    required: [true, "Year of study must to be enter."],
+    // required: [true, "Year of study must to be enter."],
   },
   CGPA: Number,
+  backlogs: String,
   classObtain: {
     type: String,
-    required: [true, "class obtain must be enter."],
+    // required: [true, "class obtain must be enter."],
   },
   remark: {
     type: String,
     default: null,
     trim: true,
+  },
+  file: {
+    type: Array,
+  },
+  verified: {
+    type: Boolean,
+    default: false,
   },
   verifiedBY: String,
   applicantID: {
